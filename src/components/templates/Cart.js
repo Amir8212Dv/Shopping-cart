@@ -1,23 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 // CSS :
 import styles from '../../styles/Cart.module.css'
-// Context :
-import { Context } from '../../App';
 // Trash icon :
 import Trash from '../../icons/trash.svg'
 // method :
 import  textSplite  from '../../helper/textSplite';
+// Redux Actions
+import { increaseProduct , decreaseProduct , removeProduct } from '../redux/count/productsAction';
+// Redux
+import { useDispatch } from 'react-redux';
 
 
-const Cart = ({count , product , product : {title , id , image , price}}) => {
-
-    const {counter} = useContext(Context)
-    
-    const clickHandler = type => {
-        counter(type , id , product)
-    }
+const Cart = ({count , product ,  product : {title , id , image , price} }) => {
     
     const productTitle = textSplite(title)
+
+    const dispatch = useDispatch()
 
 
     return (
@@ -34,11 +32,11 @@ const Cart = ({count , product , product : {title , id , image , price}}) => {
             <div className={styles.btn_container}>
                 {count === 1 
                 ?
-                    <button onClick={() => clickHandler('REMOVE')} className={styles.trash_btn}><img src={Trash} alt='trash-icon' /></button>
+                    <button onClick={() => dispatch(removeProduct(id))} className={styles.trash_btn}><img src={Trash} alt='trash-icon' /></button>
                 :   
-                    <button onClick={() => clickHandler('DECREASE')} className={styles.decrease_btn}>-</button>
+                    <button onClick={() => dispatch(decreaseProduct(id , product))} className={styles.decrease_btn}>-</button>
                 }
-                <button onClick={() => clickHandler('INCREASE')} className={styles.increase_btn}>+</button>
+                <button onClick={() => dispatch(increaseProduct(id , product))} className={styles.increase_btn}>+</button>
             </div>
         </div>
     );

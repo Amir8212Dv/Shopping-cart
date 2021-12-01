@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css'
 // Cart icon :
 import ShopIcon from '../icons/shop.svg'
+// Reudx
+import { useSelector } from 'react-redux';
 
 
+const Navbar = () => {
 
-const Navbar = ({count}) => {
+    const state = useSelector(state => state)
     
-    const cartCount = count < 100 ? count : '+99'
+    
+    const count = Array.from(state.map.values()).reduce((prev , cur) => {
+        return prev + cur.count
+    } , 0)
+    
 
     return (
         <div className={styles.container}>
@@ -19,7 +26,7 @@ const Navbar = ({count}) => {
             <Link to='/cart' 
             className={styles.cart}>
                 <img src={ShopIcon} alt='shop-icon' />
-                <p className={cartCount==='+99' ? styles.highCount : undefined}>{cartCount}</p>
+                <p >{count}</p>
             </Link>
 
         </div>

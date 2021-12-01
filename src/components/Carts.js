@@ -1,7 +1,5 @@
-import React, { useContext , useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// Context :
-import { Context } from '../App';
 // Components :
 import Cart from './templates/Cart'
 // Methods :
@@ -9,19 +7,23 @@ import totalCount from '../helper/totalCount';
 import totalPrice from '../helper/totalPrice';
 // Css :
 import styles from '../styles/Carts.module.css'
-
+// Redux Actions
+import { cleareProducts } from './redux/count/productsAction';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Carts = () => {
 
     const [isCheckOut , setIsCheckout] = useState(false)
 
-    const {counter , map} = useContext(Context)
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
 
-    const values = Array.from( map.values() );
+    const values = Array.from( state.map.values() );
 
-    const totalP = totalPrice(map)
-    const totalC = totalCount(map)
+    const totalP = totalPrice(state.map)
+    const totalC = totalCount(state.map)
     
 
 
@@ -47,11 +49,14 @@ const Carts = () => {
                                 <p><span>total payment : </span> {totalP} $</p>
 
                                 <div className={styles.btn_container}>
-                                    <button onClick={() => counter('CLEARE')} className={styles.clear}>clear</button>
+                                    <button onClick={() => {
+                                        dispatch({type : 'CLEARE'})
+                                        }} className={styles.clear}>clear</button>
+
                                     <button onClick={() => {
                                         setIsCheckout(true)
-                                        counter('CLEARE')
-                                    }} className={styles.checkout_btn}>checkout</button>
+                                        dispatch(cleareProducts())
+                                        }} className={styles.checkout_btn}>checkout</button>
                                 </div>
                                 
                             </div>

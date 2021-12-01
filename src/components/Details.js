@@ -2,11 +2,14 @@ import React , {useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 // CSS :
 import styles from '../styles/Details.module.css'
+// Reudx
+import { useSelector } from 'react-redux';
 
 
 
+const Details = ({match}) => {
 
-const Details = ({products , match}) => {
+    const products = useSelector(state => state.products)
 
     const [product , setProduct] = useState()
     
