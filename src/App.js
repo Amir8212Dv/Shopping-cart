@@ -8,7 +8,8 @@ import Carts from './components/Carts';
 import Navbar from './components/Navbar';
 
 import { useDispatch  } from 'react-redux';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap.min.js'
 
 const App = () => {
     
@@ -25,7 +26,7 @@ const App = () => {
 
     
     return (
-        <>
+        <div className='container-fluid'>
             <Navbar />
             <Switch>
                 <Route path='/store' component={Store}/>
@@ -37,7 +38,7 @@ const App = () => {
                 <Redirect from='/' to='/store' />
                         
             </Switch>
-          </>  
+          </div>  
         
     );
 };

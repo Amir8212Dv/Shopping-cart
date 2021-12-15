@@ -19,14 +19,14 @@ const Navbar = () => {
     
 
     return (
-        <div className={styles.container}>
+        <div className={`d-flex justify-content-between align-items-center mb-5 w-100 bg-white shadow-lg ${styles.container}`}>
             
-            <Link to='/store' className={styles.product}>Products</Link>
+            <Link to='/store' className={` ${styles.product}`}>Products</Link>
 
             <Link to='/cart' 
-            className={styles.cart}>
+            className={`${styles.cart}`}>
                 <img src={ShopIcon} alt='shop-icon' />
-                <p >{count}</p>
+                <p className='rounded-circle'>{count}</p>
             </Link>
 
         </div>

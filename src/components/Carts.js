@@ -34,21 +34,17 @@ const Carts = () => {
             ?
                 <div className={styles.checkout}>
                     <p>Checkouted successfully</p>
-                    <Link to='/store'>Back to shop</Link>
+                    <Link to='/store' className='d-block mx-auto p-2 rounded'>Back to shop</Link>
                 </div> 
             :
-                <div className={styles.container}>
-                    <div>
-                        {values.map(p =>  <Cart product={p.data} count={p.count} key={p.data.id} />)}
-                    </div>
-
+                <div className={`d-flex justify-content-between  ${styles.container}`}>
                         {totalC 
                         ?
-                            <div className={styles.data}>
+                            <div className={` ${styles.data}`}>
                                 <p><span>total items : </span> {totalC}</p>
                                 <p><span>total payment : </span> {totalP} $</p>
 
-                                <div className={styles.btn_container}>
+                                <div className={`d-flex justify-content-between align-items-center mt-5 mb-4`}>
                                     <button onClick={() => {
                                         dispatch({type : 'CLEARE'})
                                         }} className={styles.clear}>clear</button>
@@ -56,17 +52,21 @@ const Carts = () => {
                                     <button onClick={() => {
                                         setIsCheckout(true)
                                         dispatch(cleareProducts())
-                                        }} className={styles.checkout_btn}>checkout</button>
+                                        }} className={`rounded p-2 me-3 border-0 text-white  ${styles.checkout_btn}`}>checkout</button>
                                 </div>
                                 
                             </div>
                         
                         : 
-                            <div className={styles.empty}>
-                                <p>Cart is empty</p>
-                                <Link to='/store' >Go to Shop</Link>
+                            <div className={ `d-flex flex-column flex-wrap mx-auto ${styles.empty}`}>
+                                <p className='w-100 '>Cart is empty</p>
+                                <Link to='/store' className='mx-auto text-white py-2 px-3 rounded'>Go to Shop</Link>
                             </div>
                         }
+
+                    <div className={styles.carts}>
+                        {values.map(p =>  <Cart product={p.data} count={p.count} key={p.data.id} />)}
+                    </div>
                 </div> 
             }
         </div>

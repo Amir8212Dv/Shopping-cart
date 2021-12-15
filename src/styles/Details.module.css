@@ -1,35 +1,35 @@
 
 .container {
-    width: 80%;
-    margin: auto;
+    /* width: 80%;
+    margin: auto; */
     height: fit-content;
     border: 1px solid silver;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
     border-radius: 10px;
 }
 
 .image {
     max-height: 500px;
     max-width: 500px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
 }
 
 .description {
     border: 1px solid silver;
-    padding: 25px;
+    /* padding: 25px; */
     margin: 100px 40px;
-    width: 50%;
     border-radius: 10px;
 }
+
 
 .description p {
     color: rgb(62, 62, 62);
 }
 
 
-.description h3 {
+.title {
     color: #1a73e8;
     margin: 15px 0 30px;
     font-size: 25px;
@@ -41,16 +41,14 @@
 }
 
 .category {
-    font-weight: bold ;
-    font-size: larger;
+    /* font-weight: bold ;
+    font-size: larger; */
 }
 
 .description div {
-    display:flex;
+    /* display:flex;
     justify-content: space-between;
-    align-items: center;
-    padding-left: auto 30px;
-    margin-top: 20px;
+    align-items: center; */
 }
 
 .price {
@@ -65,11 +63,12 @@
 
 .link {
     background-color: #1a73e8;
-    color: white;
+    /* color: white; */
     text-decoration: none;
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: bold;
+    /* border-radius: 5px; */
+    padding: 4px;
+    height: fit-content;
+    font-weight: bolder;
     font-size: larger;
 }
 
@@ -77,3 +76,40 @@
     background-color: #08499d;
 }
 
+@media only screen and (max-width : 500px) {
+    .image {
+        max-height: 250;
+        max-width: 250px;
+    }
+    .container {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+    .description {
+        width: 100% !important;
+        margin: 0;
+        margin-top: 50px;
+    }
+}
+@media only screen and (max-width : 800px) and (min-width : 500px) {
+    
+    .container {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+    .description {
+        width: 80% !important;
+    }
+}
+@media only screen and (max-width : 1200px) and (min-width : 800px) {
+    .container {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+    .description {
+        width: 80% !important;
+    }
+}
+@media only screen and (max-width : 1800px) and (min-width : 1200px) {
+    
+}

@@ -19,7 +19,7 @@ const Cart = ({count , product ,  product : {title , id , image , price} }) => {
 
 
     return (
-        <div className={styles.container}>
+        <div className={`d-flex justify-content-between align-items-center ${styles.container}`}>
             <img src={image} alt={title} className={styles.image} />
             
             <div className={styles.details}>
@@ -29,7 +29,7 @@ const Cart = ({count , product ,  product : {title , id , image , price} }) => {
 
             <p className={styles.count} > {count} </p>
             
-            <div className={styles.btn_container}>
+            <div className={`d-flex justify-content-center align-items-center ${styles.btn_container}`}>
                 {count === 1 
                 ?
                     <button onClick={() => dispatch(removeProduct(id))} className={styles.trash_btn}><img src={Trash} alt='trash-icon' /></button>

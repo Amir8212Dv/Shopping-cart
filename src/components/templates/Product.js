@@ -10,7 +10,7 @@ import textSplite  from '../../helper/textSplite';
 import { addProduct , increaseProduct , decreaseProduct , removeProduct } from '../redux/count/productsAction';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Product = ({product , product:{id , title , image , price}}) => {
 
@@ -24,19 +24,19 @@ const Product = ({product , product:{id , title , image , price}}) => {
 
     return (
         <div className={styles.container}>
-            <img src={image} alt={productTitle} className={styles.image}/>
+            <img src={image} alt={productTitle} className={`d-block mx-auto ${styles.image}`}/>
 
             <div className={styles.description}>
                 <p className={styles.title}>{productTitle}</p>
                 <p className={styles.price}>{price} $</p>
             </div>
 
-            <div className={styles.bottom}>
+            <div className={`d-flex justify-content-between align-items-center ${styles.bottom}`}>
                 <Link to={`/details/${id}`}>Details</Link>
 
                 {keys.includes(id)
                 ?
-                    <div className={styles.btn_container}>
+                    <div className={`d-flex justify-content-between align-items-center ${styles.btn_container}`}>
 
                         {state.map.get(id).count === 1
                         ?

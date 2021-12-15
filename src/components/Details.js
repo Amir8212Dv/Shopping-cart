@@ -19,20 +19,20 @@ const Details = ({match}) => {
         
  
     return (
-        <div className={styles.container}>
+        <div className={`container d-flex justify-content-between align-item-center ${styles.container}`}>
             {product &&
             <>
                 <img src={product.image} alt={product.title} className={styles.image} />
 
-                <div className={styles.description}>
+                <div className={` w-50 p-3 ${styles.description}`}>
                     
-                    <h3>{product.title}</h3>
+                    <p className={`h3 ${styles.title}`}>{product.title}</p>
                     <p>{product.description}</p>
-                    <p className={styles.category}><span>Category:</span> {product.category}</p>
+                    <p className={`h6 mb-4 ${styles.category}`}><span>Category:</span> {product.category}</p>
 
-                    <div>
+                    <div className='d-flex justify-content-between align-item-center '>
                         <p className={styles.price}>{product.price} $</p>
-                        <Link to='/store' className={styles.link}>Back to shop</Link>
+                        <Link to='/store' className={`rounded text-white ${styles.link}`}>Back to shop</Link>
                     </div>
                     
                 </div>
