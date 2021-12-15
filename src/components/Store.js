@@ -1,5 +1,4 @@
 import React from 'react';
-
 // Component :
 import Product from './templates/Product';
 // Redux
@@ -13,7 +12,6 @@ const Store = () => {
     const dispatch = useDispatch()
     
     return (
-        // <div className='container d-flex justify-content-around flex-wrap my-0 mx-auto'> 
         <div className='container d-flex justify-content-around flex-wrap my-0 '> 
 
             {state.products.map(product => <Product product={product}  dispatch={dispatch} key={product.id} />)}

@@ -19,7 +19,7 @@ const Navbar = () => {
     
 
     return (
-        <div className={`d-flex justify-content-between align-items-center mb-5 w-100 bg-white shadow-lg ${styles.container}`}>
+        <div className={`d-flex justify-content-between align-items-center mb-5 w-100  shadow-lg ${styles.container}`}>
             
             <Link to='/store' className={` ${styles.product}`}>Products</Link>
 

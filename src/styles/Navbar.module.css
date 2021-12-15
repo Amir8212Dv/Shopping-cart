@@ -1,15 +1,7 @@
 .container {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; 
-     margin: 0; 
-     margin-bottom: 40px;
-     */
     position:sticky; 
     top: 0px;
-    /* width: 100%; 
-     background-color: white; 
-    box-shadow: 0 5px 24px rgba(149, 157, 165, 0.4);     */
+    z-index: 10;
 }
 
 .product {
@@ -32,11 +24,8 @@
     top: -7px;
     right: -3px;
     background-color: #0b499b;
-    /* border-radius: 50%; */
     text-align: center;
     width: 22px;
-    /* height: 22px; */
-    
     color: white;
     font-size: 15px;
 }
